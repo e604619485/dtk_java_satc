@@ -1,0 +1,33 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: dtk_java_satc
+  kafka:
+    # 指定kafka 代理地址，可以多个
+    bootstrap-servers: 192.168.0.230:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  task:
+    pool:
+      #最大线程数
+      maxPoolSize: 30
+      #核心线程数
+      corePoolSize: 15
+      #线程池维护线程所允许的空闲时间
+      keepAliveSeconds: 60
+      #队列长度
+      queueCapacity: 100000
+      threadNamePrefix: me1-ays-
+params:
+  cms-topic: cms-test
+  web-topic: web-test
+logging:
+  level:
+   com.dtk.cms: debug
+swagger:
+    enabled: true
