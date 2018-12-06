@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 public class ServiceBootApplication {
     public static void main(String[] args) {
+        System.out.println(123);
         SpringApplication.run(ServiceBootApplication.class, args);
     }
 }
