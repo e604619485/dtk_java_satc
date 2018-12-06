@@ -5,7 +5,7 @@ spring:
     name: dtk_java_satc
   kafka:
     # 指定kafka 代理地址，可以多个
-    bootstrap-servers: 192.168.0.230:9092
+    bootstrap-servers: 192.168.11.106:9092,192.168.11.107:9092,192.168.11.108:9092
     producer:
       retries: 0
       batch-size: 16384
@@ -24,8 +24,10 @@ spring:
       queueCapacity: 100000
       threadNamePrefix: me1-ays-
 params:
-  cms-topic: cms
-  web-topic: web
+  cms-topic: dtk-cms
+  cms-event-topic: dtk-cms-event
+  web-topic: dtk-web
+  web-event-topic: dtk-web-event
 logging:
   level:
    com.dtk.cms: debug

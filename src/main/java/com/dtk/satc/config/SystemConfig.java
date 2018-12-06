@@ -1,7 +1,5 @@
 package com.dtk.satc.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class SystemConfig {
-
     /**
      * cms-topic
      */
@@ -28,6 +25,17 @@ public class SystemConfig {
     private String cmsTopic;
 
     /**
+     * cms-topic
+     */
+    public static String CMS_EVENT_TOPIC;
+
+    /**
+     * cms-topic
+     */
+    @Value("${params.cms-event-topic}")
+    private String cmsEventTopic;
+
+    /**
      * web-topic
      */
     public static String WEB_TOPIC;
@@ -38,11 +46,24 @@ public class SystemConfig {
     @Value("${params.web-topic}")
     private String webTopic;
 
+    /**
+     * web-topic
+     */
+    public static String WEB_EVENT_TOPIC;
+
+    /**
+     * web-topic
+     */
+    @Value("${params.web-event-topic}")
+    private String webEventTopic;
+
 
     @Bean
     public String init(){
         CMS_TOPIC = cmsTopic;
+        CMS_EVENT_TOPIC = cmsEventTopic;
         WEB_TOPIC = webTopic;
+        WEB_EVENT_TOPIC = webEventTopic;
         return null;
     }
 

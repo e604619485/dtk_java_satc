@@ -5,13 +5,17 @@ spring:
     name: dtk_java_satc
   kafka:
     # 指定kafka 代理地址，可以多个
-    bootstrap-servers: 192.168.0.230:9092
+    #bootstrap-servers: 192.168.0.230:9092
+    bootstrap-servers: 101.201.237.23:9092
+    #bootstrap-servers: alldb_kafka1:12181,alldb_kafka2:12181,alldb_kafka3:12181
+    #bootstrap-servers: 192.168.11.106:9092,192.168.11.107:9092,192.168.11.108:9092
     producer:
       retries: 0
       batch-size: 16384
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #acks: all
   task:
     pool:
       #最大线程数
@@ -25,7 +29,9 @@ spring:
       threadNamePrefix: me1-ays-
 params:
   cms-topic: cms-test
+  cms-event-topic: dtk-cms-event-test
   web-topic: web-test
+  web-event-topic: dtk-web-event-test
 logging:
   level:
    com.dtk.cms: debug
